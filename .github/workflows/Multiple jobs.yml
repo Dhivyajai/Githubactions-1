@@ -16,7 +16,7 @@ jobs:
             - name : Upload Dragon file to artifact
               uses: actions/upload-artifact@v3
               with:
-                name: Dragon text-file
+                name: Dragon-text-file
                 path: dragon.txt
 
     test-job:
@@ -26,7 +26,7 @@ jobs:
           - name : Download ad Dragon file to artifact
             uses: actions/download-artifact@v3
             with:
-              name: Dragon text-file
+              name: Dragon-text-file
 
           - name: Test file exists
             run: grep -i "dragon" dragon.txt
@@ -40,7 +40,7 @@ jobs:
           - name : Download ad Dragon file to artifact
             uses: actions/download-artifact@v3
             with:
-              name: Dragon text-file
+              name: Dragon-text-file
 
           - name: Read file contents
             run: cat dragon.txt
