@@ -1,0 +1,39 @@
+name: Multiple jobs
+
+on: push
+
+jobs:
+    build-job:
+        runs-on: ubuntu-latest
+        steps:
+  
+            - name: Install cosway program
+              run: sudo apt-get install cowsay -y
+
+            - name: Execute cosway
+              run: cowsay -f dragon "Run for cover, I am a dragon....." >> dragon.txt
+
+            - name : Sleep 30
+              run: sleep 30
+
+    test-job:
+        needs: build-job
+        runs-on: ubuntu-latest
+        steps:
+          - name: Test file exists
+            run: grep -i "dragon" dragon.txt
+
+          - name: Sleep 10
+            run: sleep 10
+      
+
+   
+    deploy-job:
+        needs: test-job
+        runs-on: ubuntu-latest
+        steps:
+          - name: Read file contents
+              run: cat dragon.txt
+
+          - name: checkout Repo files
+              run: ls -ltra

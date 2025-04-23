@@ -1,9 +1,9 @@
-name: ASCII generate file
+name: ASCII script
 
 on: push
 
 jobs:
-    ASCII-generate:
+    ASCII-script:
         runs-on: ubuntu-latest
         steps:
             - name: checkout Repo
