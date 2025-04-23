@@ -11,12 +11,19 @@ jobs:
            uses:  actions/checkout@v4
 
          - name : Welcome message
-           run: echo "My first workflow in Github actions"
+           run: 
+             echo "My first workflow in Github actions"
+             ls -lart
+             cat README.md
+
+         - name : Generate ASCII artwork
+           run: cosway -f dragon "Run for cover, I am a dragon....." >> dragon.txt
+
         
-         - name: List files
-           run: ls
+         #- name: List files
+         #  run: ls
          
-         - name: Read file
-           run: cat README.md
+         #- name: Read file
+         # run: cat README.md
 
 
