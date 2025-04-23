@@ -22,10 +22,10 @@ jobs:
             - name: Docker publish
               run: echo docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
       
-     deploy:
-       needs: docker
-       runs_on: ubuntu-latest
-       steps:
-         - name: Docker run
-           run: echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+    deploy:
+        needs: docker
+        runs-on: ubuntu-latest
+        steps:
+           - name: Docker run
+             run: echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
