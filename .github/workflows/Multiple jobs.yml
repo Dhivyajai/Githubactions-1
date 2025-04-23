@@ -14,19 +14,19 @@ jobs:
               run: cowsay -f dragon "Run for cover, I am a dragon....." >> dragon.txt
 
             - name : Upload Dragon file to artifact
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
-                name: Dragon-text-file
-                path: dragon.txt
+                 name: Dragon-text-file
+                 path: dragon.txt
 
     test-job:
         needs: build-job
         runs-on: ubuntu-latest
         steps:
           - name : Download ad Dragon file to artifact
-            uses: actions/download-artifact@v3
+            uses: actions/download-artifact@v4
             with:
-              name: Dragon-text-file
+               name: Dragon-text-file
 
           - name: Test file exists
             run: grep -i "dragon" dragon.txt
@@ -38,9 +38,9 @@ jobs:
         steps:
 
           - name : Download ad Dragon file to artifact
-            uses: actions/download-artifact@v3
+            uses: actions/download-artifact@v4
             with:
-              name: Dragon-text-file
+               name: Dragon-text-file
 
           - name: Read file contents
             run: cat dragon.txt
