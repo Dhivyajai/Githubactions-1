@@ -13,25 +13,35 @@ jobs:
             - name: Execute cosway
               run: cowsay -f dragon "Run for cover, I am a dragon....." >> dragon.txt
 
-            - name : Sleep 30
-              run: sleep 30
+            - name : Upload Dragon file to artifact
+              uses: actions/upload-artifact@v3
+              with:
+                name: Dragon text-file
+                path: dragon.txt
 
     test-job:
         needs: build-job
         runs-on: ubuntu-latest
         steps:
+          - name : Download ad Dragon file to artifact
+            uses: actions/download-artifact@v3
+            with:
+              name: Dragon text-file
+
           - name: Test file exists
             run: grep -i "dragon" dragon.txt
-
-          - name: Sleep 10
-            run: sleep 10
-      
 
    
     deploy-job:
         needs: test-job
         runs-on: ubuntu-latest
         steps:
+
+          - name : Download ad Dragon file to artifact
+            uses: actions/download-artifact@v3
+            with:
+              name: Dragon text-file
+
           - name: Read file contents
             run: cat dragon.txt
 
