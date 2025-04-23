@@ -1,0 +1,25 @@
+name: ASCII generate file
+
+on: push
+
+jobs:
+    ASCII-generate:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout Repo
+              uses: actions/checkout@v4
+
+            - name: Install cosway program
+              run: sudo apt-get -y install cosway
+
+            - name: Execute cosway
+              run: cosway -f dragon "Run for cover, I am a dragon....." >> dragon.txt
+
+            - name: Test file exists
+              run: grep -i "dragon" dragon.txt
+
+            - name: Read file contents
+              run: cat dragon.txt
+
+            - name: checkout Repo files
+              run: ls-ltra
