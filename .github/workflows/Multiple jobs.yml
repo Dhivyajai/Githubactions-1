@@ -33,7 +33,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Read file contents
-              run: cat dragon.txt
+            run: cat dragon.txt
 
           - name: checkout Repo files
-              run: ls -ltra
+            run: ls -ltra

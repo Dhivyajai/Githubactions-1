@@ -15,5 +15,5 @@ jobs:
             - name: Executing cowsay script
               run: 
                  chmod +x ascii-generate.sh
-                ./ascii-generate.sh
+                ./ ascii-generate.sh
             
