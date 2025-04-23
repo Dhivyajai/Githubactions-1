@@ -1,0 +1,19 @@
+name: ASCII generate file
+
+on: push
+
+jobs:
+    ASCII-generate:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout Repo
+              uses: actions/checkout@v4
+
+            - name: checkout Repo files
+              run: ls -ltra 
+
+            - name: Executing cowsay script
+              run: 
+                 chmod +x ascii-generate.sh
+                ./ascii-generate.sh
+            
