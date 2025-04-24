@@ -16,4 +16,7 @@ jobs:
               run: 
                  chmod +x ascii-generate.sh
                 ./ ascii-generate.sh
+
+
+        # Adding a new command 
             
