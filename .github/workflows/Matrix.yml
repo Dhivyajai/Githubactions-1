@@ -8,8 +8,6 @@ on:
 jobs:
     deploy:
         strategy:
-           fail-fast: false
-           max-parallel: 2 
            matrix:
              os: [ubuntu-latest, ubuntu-20.2, windows-latest]
              images: [hello-world, alpine]
