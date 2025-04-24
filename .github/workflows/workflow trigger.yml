@@ -6,7 +6,7 @@ on:
     push:
        branches:
           - main
-          - !features/*        # Does not include feature branches
+          - '!features/*'        # Does not include feature branches
 
     pull_request:
         types:
